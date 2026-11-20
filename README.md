@@ -32,3 +32,18 @@ git diff HEAD~1
 git reflog
 git stash push -m "work in progress"
 ```
+
+### 5. Interactive Rebase, Bisect & Parallel Worktrees
+```bash
+# Squash or reorder local commits before opening a PR
+git rebase -i origin/main
+
+# Binary-search commit history to isolate a regression
+git bisect start
+git bisect bad HEAD
+git bisect good v1.0.0
+
+# Mount an isolated working tree for hotfixes without stashing current work
+git worktree add ../hotfix-branch hotfix/critical-patch
+git worktree list
+```
