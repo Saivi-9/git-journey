@@ -47,3 +47,18 @@ git bisect good v1.0.0
 git worktree add ../hotfix-branch hotfix/critical-patch
 git worktree list
 ```
+
+### 6. Release Tagging, Cherry-Picking & Repository Hygiene
+```bash
+# Create an annotated release tag and push it to origin
+git tag -a v2.1.0 -m "Release v2.1.0: production telemetry upgrades"
+git push origin v2.1.0
+
+# Backport a specific commit onto a maintenance branch with provenance reference
+git cherry-pick -x <commit-sha>
+
+# Prune deleted remote-tracking branches and inspect untracked artifacts safely
+git fetch --all --prune
+git clean -fdn
+```
+
