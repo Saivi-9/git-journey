@@ -62,3 +62,17 @@ git fetch --all --prune
 git clean -fdn
 ```
 
+### 7. Blame Archaeology, Range Logs & Portable Patches
+```bash
+# Trace line-by-line authorship while ignoring whitespace-only formatting changes
+git blame -w -L 10,40 src/main.py
+
+# Inspect commits touching a specific function or file path
+git log -L :calculate_gpa:app.py
+
+# Export commits as portable ".patch" files and apply them cleanly with authorship intact
+git format-patch -1 HEAD --stdout > hotfix.patch
+git am < hotfix.patch
+```
+
+
