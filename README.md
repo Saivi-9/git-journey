@@ -75,4 +75,18 @@ git format-patch -1 HEAD --stdout > hotfix.patch
 git am < hotfix.patch
 ```
 
+## Parallel Worktrees & Sparse Checkouts
+
+```bash
+# Check out a separate branch in a parallel directory without stashing current work
+git worktree add ../hotfix-branch feature/urgent-fix
+git worktree list
+git worktree remove ../hotfix-branch
+
+# Initialize sparse-checkout in cone mode for large monorepos
+git sparse-checkout init --cone
+git sparse-checkout set src/core tests/unit
+```
+
+
 
