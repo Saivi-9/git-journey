@@ -88,5 +88,18 @@ git sparse-checkout init --cone
 git sparse-checkout set src/core tests/unit
 ```
 
+### 9. Cryptographic Commit Signing & Non-Destructive Git Notes
+```bash
+# Sign commits and tags using SSH or GPG keys and verify signatures in history
+git commit -S -m "feat(security): enforce cryptographic commit verification"
+git log --show-signature -n 3
+
+# Attach audit or CI benchmark metadata to a commit without changing its SHA-1/SHA-256 hash
+git notes add -m "CI benchmark: 99.4% accuracy, 0 regressions" HEAD
+git notes show HEAD
+git log --show-notes -n 2
+```
+
+
 
 
