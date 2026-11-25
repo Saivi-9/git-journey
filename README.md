@@ -100,6 +100,19 @@ git notes show HEAD
 git log --show-notes -n 2
 ```
 
+### 10. Pickaxe History Search & Regex Code Grepping
+```bash
+# Find commits that added or removed occurrences of a specific identifier ("pickaxe" search)
+git log -S "compute_cardiometabolic_syndrome_index" --oneline
+
+# Find commits whose diff matches a regular expression pattern
+git log -G "def (compute|evaluate)_" --stat
+
+# Fast indexed regex search across tracked files with line numbers and file headings
+git grep -n --heading --break "FastAPI"
+```
+
+
 
 
 
