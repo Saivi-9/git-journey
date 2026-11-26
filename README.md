@@ -112,6 +112,17 @@ git log -G "def (compute|evaluate)_" --stat
 git grep -n --heading --break "FastAPI"
 ```
 
+### 11. Submodules, Subtrees & Multi-Repo Dependency Pinning
+```bash
+# Pin an external repository at a deterministic commit as a Git submodule
+git submodule add https://github.com/Saivi-9/cortex-cpp.git external/cortex-cpp
+git submodule update --init --recursive
+
+# Vendor a sub-project's history into a subdirectory without submodule metadata
+git subtree add --prefix=vendor/shared-utils https://github.com/Saivi-9/python-for-ai.git main --squash
+git subtree pull --prefix=vendor/shared-utils https://github.com/Saivi-9/python-for-ai.git main --squash
+```
+
 
 
 
