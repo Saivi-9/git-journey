@@ -123,6 +123,17 @@ git subtree add --prefix=vendor/shared-utils https://github.com/Saivi-9/python-f
 git subtree pull --prefix=vendor/shared-utils https://github.com/Saivi-9/python-for-ai.git main --squash
 ```
 
+### 12. Offline Repository Bundles & Reproducible Release Archives
+```bash
+# Package an entire branch or commit range into a single offline portable bundle file
+git bundle create repo-backup.bundle main
+git bundle verify repo-backup.bundle
+
+# Export a clean source tree tarball/zip for a tagged release without the .git directory
+git archive --format=tar.gz --prefix=release-v2.1.0/ -o release-v2.1.0.tar.gz HEAD
+```
+
+
 
 
 
